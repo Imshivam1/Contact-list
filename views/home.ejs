@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title><%= locals.title %></title>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <div id="container">
+        <i class="fa-regular fa-address-book"></i>
+        <h1 id="page-heading">My Contact List</h1>
+    </div>
+        <div>
+            <div class="table-container">
+                <ul class="contact-list">
+                    <% for (let i of contact_list) { %>
+                        <li class="contact-entry">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="name-group">
+                                            <p><%= i.name %></p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="email-group">
+                                            <p id="second-blk"><%= i.email %></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="dlt-btn">
+                                <a href="/delete-contact/?email=<%= i.email %>">
+                                    <i class="fa-solid fa-delete-left"></i>
+                                </a>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>                
+        </div>
+
+        <form id="forms" action="/create-contact" method="POST">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <button id = "cntc-btn" type="submit">Add Contact</button>
+
+        </form>
+
+    <script type="text/javascript" src="/js/home.js"></script>
+    <script src="https://kit.fontawesome.com/8b94ad97e3.js" crossorigin="anonymous"></script>
+    </body>
+    </html>

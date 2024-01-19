@@ -1,0 +1,15 @@
+<!-- mytemplate.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Welcome to <%= title %>!</h1>
+    <ul>
+      <% fruits.forEach(function(fruit) { %>
+        <li><%= fruit %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
